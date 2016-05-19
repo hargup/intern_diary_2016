@@ -1,4 +1,4 @@
-# June 2012
+# Feb 2012
 
 * 21 Feb 2012: Adrian Bateman announced at the public-html mailing list that
   they have been working to provide an API to play encrypted media in HTML 5
@@ -133,18 +133,121 @@ clearkey, just as HTML does not mandate any video codec and for similar
 reasons. So the specification as proposed can be implemented in Open Source
 just as well as the rest of the Media Element." [22]
 
-    * Glenn Adams calls for keeping licensing technical issues seperate. [23]
+    * Glenn Adams calls for keeping licensing technical issues separate. [23]
 
     * Henri Sivonen says a more interesting to ask is if Netflix et al. are
       willing to use open source implementations of CDMs to provide their
 content [24].
 
-    * John Vernaleo replies to Glenn saying that he'll like to keep techinical
+    * John Vernaleo replies to Glenn saying that he'll like to keep technical
       and legal issue seperate but that might mean keeping OSS out [25] to
 which Glenn replies that this is over generalization and not all licenses
-block OSS [25], to which John Vernaleo says 
+block OSS [26], to which John Vernaleo says that the specifics of the
+restrictive policies are not important, what he is concerned about is building
+a system where OSS cannot participate, he also warns that it is dangerous to
+build mechanisms supporting some parties without thinking about their
+consequences [27].
 
-    * 
+    * There was small misunderstanding where Henri says that HTML5 already
+      supports cases where user is not treated as an adversary, which Clark
+and Glenn found derogatory [28] [29] [30]. To which Henri later clarifies that
+Henri probably meant the term "adversary" in the technical context of
+cryptography [39]. (Exchanges of Clarke and Tab [42] [43], Andreas supports the
+nontechnical usage of term adversary in context of DRM and points out to RMS [45])
+
+    * Boris Zbarsky ... [32]
+
+    *  Incompressible exchange between Charles and Kornel [33] [34]
+
+    * Mark Vickers representing Comcast strongly supported the EME proposal
+      claiming that EME will go a long way towards moving most of the
+functionality of web to plugins. He compared EME to SSL and said like SSL, EME
+will be a vital step enabling commerce and communications through web browser.
+[35]
+
+    * Charles argues that EME can help with privacy by ensuring that the
+      content consumed by user doesn't get intercepted by third parties, he
+mainly talks about browser extensions which be used for interception. He
+asks the group to give a full analysis to the proposal so that it can be used
+for the benefit of privacy [36].
+
+    * Supporting Ian, Benjamin Hawkes-Lewis posts three weblinks demostrating
+      the inverse relation between DRM and accessibility. Though two of these
+three weblinks are now broken [37]. To which Glenn Adams responds by saying
+that DRM/CP doesn't intentionally discriminates against accessiblity features.
+He then points out that HTML5 offer work arounds in case where accessibility
+features are missing. [38]
+
+    * Henri says "Even if one accepted the notion that DRM discriminates
+      equally against non-accessibility and accessibility features,
+discriminating against accessibility features at all deserves special
+attention, because traditionally under copyright law, accessibility is
+privileged.Typically European countries have copyright acts that put
+limitations on copyright (i.e. the copyright holder has less say) that enable
+adaptations for accessibility purposes. DRM foils this, which is a recurring
+theme in hearings about anti-circumvention legislation.
+
+Suppose the content provider isn't providing a text track and has
+applied DRM to the audio track. Suppose that the DRM proprietor places
+a contractual requirements (amplified by anti-circumvention
+legislation) on implementors that say the unscrambled audio samples
+may only be sent to audio output hardware and must not be provided to
+other processes. This would prevent the accessibility use of sending
+the audio to a speech recognition system for generating captions on
+the fly on the client side.
+"
+
+He also demands to know why scrambling is not being proposed as a solution.
+[40] [41] To which Mark responds that JS is not a secure enough and it might
+turn out to be to heavy. [50]
+
+    * David Singer calls it a myth that HTML5 cannot play protected content.
+      [44]
+
+    * Mark Vickers argues that EME improves upon many of the accessibility
+      issues in plugin systems used to play protected content by providing
+standard ways to add accessibility features. [46]
+     Mark further asks following questions to David and EME editors. [47]
+"""
+David Singer:
+1. How would the application and user agent communicate the particular
+   content-protection scheme? Would it be in the source element type and/or
+codecs attributes? Can you give a concrete example?
+
+2. How would the application key server connect to the user-agent key client?
+
+3. Are there any examples deployed, prototyped or proposed for a specific
+   content protection system using HTML5 in this manner?
+
+David Dorwin, Adrian Bateman, Mark Watson:
+1. Can you provide a functionality comparison of content protection using the
+   current specs vs. with your proposal?
+"""
+
+    * David's responds to the question [48] and Mark responds by arguing that
+      many browsers have entire media pipeline in the browers code and hence it
+cannot use the content protection facilities available on the OS, he also
+claims that it is not a myth that protected content cannot be run in HTML5
+because there isn't a standard way to do it. [49] And then David responds
+agains (will do the summarization later) [56].
+
+
+    * To issue of creating unlevelled field for browser's Mark responds that
+      the same situation exists in plugin based enviornments and EME improves
+upon that. [50] To which Boris's response was that any new browser with correct
+implementation of NPAPI can work with flash so the answer really depends on the
+specifics of the Content Decryption Modules. He also questions the assumption
+that browser developer will have greater control and more options in case of
+EME [51]
+
+    * Mark argues that there are practical difficulties for new browser with
+      flash even if they have an implementation of NPAPI according to the
+specification, he says CDMs provide more control to browsers because they are
+smaller and have much less functionality. [52] According to Boris this is
+different because there no legal difficulties, where as implementing a CDM
+might lead to trouble with DMCA. [53]
+
+    * Purely technical blabber [54] [55]
 
 
 
@@ -204,6 +307,68 @@ block OSS [25], to which John Vernaleo says
 
 [25]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0380.html
 
+[26]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0381.html
+
+[27]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0383.html
+
+[28]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0384.html
+
+[29]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0385.html
+
+[30]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0386.html
+
+[31]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0388.html
+
+[32]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0387.html
+
+[33]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0389.html
+
+[34]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0390.html
+
+[35]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0391.html
+
+[36]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0393.html
+
+[37]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0405.html
+
+[38]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0408.html
+
+[39]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0411.html
+
+[40]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0412.html
+
+[41]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0414.html
+
+[42]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0416.html
+
+[43]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0417.html
+
+[44]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0418.html
+
+[45]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0419.html
+
+[46]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0420.html
+
+[47]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0421.html
+
+[48]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0422.html
+
+[49]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0424.html
+
+[50]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0426.html
+
+[51]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0427.html
+
+[52]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0428.html
+
+[53]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0429.html
+
+[54]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0430.html
+
+[55]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0432.html
+
+[56]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0433.html
+
 # Github Notes
 
 * 17th May 2016: Paul Cotton announces that ensuring CDM level
@@ -240,6 +405,14 @@ block OSS [25], to which John Vernaleo says
 
 * Boris Zbarsky works for MIT and a quick search suggests he an insider of
   W3C.
+
+* Kornel Lesiński
+
+* Benjamin Hawkes-Lewis(bhawkeslewis@googlemail.com)'s isn't apparent from
+  simple web search.
+
+* David Singer works for Multimedia and Software Standards, Apple. He has
+  written on identity management and privacy principles in W3C. https://www.w3.org/2011/track-privacy/papers/Apple.pdf https://www.w3.org/2011/identity-ws/papers/idbrowser2011_submission_51.pdf
 
 
 
