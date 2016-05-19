@@ -13,7 +13,7 @@ ratter proposes to have generic exchange mechanism which are not specifically
 related to encrypted content. He criticizes not supporting params.
     * A lot of talk there after is about comparison with `<object>` in a purely
       techinical sense.
-    * Chris Pearce questions the possiblity of implementing content protection
+    * Chris Pearce questions the possibility of implementing content protection
       in a FOSS browser.
     * Eric Carlson said EME proposal is workable.
     * Tab Atkins [2] points out that the sole purpose of EME is DRM, he said
@@ -58,6 +58,95 @@ support. [5]
     * Mark Watson counters the cost to the users because of DRM with the cost
       of fragmentation. [6]
 
+    * Henri Sivonen argues that failing to describe the specs of the
+      protection system EME doesn't provide benifits of interoperability and
+level playing field for competition. Only lowering the R&D cost for
+properietry DRM systems shouldn't be a good enough reason for W3C to work on
+EME. [7]
+
+    * Charles Pritchard makes an interesting observation that `<video>` and
+      `<audio>` tags are intentionally about arbitary codecs and don't push
+vendors for interoperability. He gave an example where trusted computing makes
+sense. He also argues that an encrypted stream is no better than a arbitary
+codec but  W3C should implement trusted computing anyway to protect the
+privacy of people. [8]
+
+    * John Foliot argues that they need to strip way the philosphical
+      arguments about EME and think about from a purely technical point of
+view and then he justifies EME by saying it what the economy wants. Failing to
+realize that "This is what economy wants" is not a technical argument,
+neither he justifies that W3C should do what CEOs want them to do.
+
+    *  Carr, Wayne supports the proposal without justification. [10]
+
+    * Henri Sivonen counters John's post by saying that standard setters need
+      to make value judgement all the time and arguing "Don't use it if you
+don't like it", is an extremly naive solution and doesn't tackle the issue of
+lack of level playing field [11]. In the next email says that the lack of
+interoperability of `<video>` and `<audio>` shouldn't be taken as role model
+also. He countered Pritchard's example about Trusted computing by pointing out
+in his example the "Evil Maid" was an adversary but in EME the adversary is
+the user, he also says that it'll be laughable to say EME protect's user's
+privacy.
+
+    * Bob Lund supports the proposal by saying it is a good first step to
+      support problems of content providers and device manufacturers. [13]
+
+    * Tab Atkins points out that the legal difference between encyption and using
+      an arbitary codec is that the former is covered by DMCA but the later
+isn't. [14]
+
+    * Specifically replying to Henri, Mark Watson argues that EME is not about
+      adding DRM to the web but about improving existing plugin based system.
+[15]
+
+    * Boris Zbarsky says that EME is bad for the web if it requires new
+      browsers to coordinate with companies while commming up. [16]
+
+    * Ian Hickson draws a satire of John's "Don't use it if you don't like it"
+      argument about DRM, argues that EME intentionally makes content
+inaccessible hence it is unethical [17]. Glenn Adams calls Ian's argument non
+sense and says DRM/Content Protection has nothing to do with impaired
+users[18].
+
+    * Glenn Adams supports EME on the behalf of Cox Communications and asks
+      W3C to remain neutral on the fact that DRM should be used or not. [19]
+
+    * Andreas Kuckartz opposes the proposal if it cannot be implemented by
+      Open Source Software. [20]
+
+    * Glenn argues the protecting users should mean protecting the interests
+      of content consumers and content producers, and we should not bias
+against users who are willing to pay for DRMed content. He points that
+EME has to take care of the constrains imposed by licensing terms of content
+providers, which might prevent usage of EME with open source implementation [21].
+
+    * Mark Watson says "A Content Decryption Module implementing the
+      'clearkey' keysystem can be implemented as Open Source. This serves as
+an existence proof, at least.
+
+Whether any given content provider believes any given keysystem
+implementation meets their needs is up to them.
+
+We are not proposing to standardize any Content Decryption Module except
+clearkey, just as HTML does not mandate any video codec and for similar
+reasons. So the specification as proposed can be implemented in Open Source
+just as well as the rest of the Media Element." [22]
+
+    * Glenn Adams calls for keeping licensing technical issues seperate. [23]
+
+    * Henri Sivonen says a more interesting to ask is if Netflix et al. are
+      willing to use open source implementations of CDMs to provide their
+content [24].
+
+    * John Vernaleo replies to Glenn saying that he'll like to keep techinical
+      and legal issue seperate but that might mean keeping OSS out [25] to
+which Glenn replies that this is over generalization and not all licenses
+block OSS [25], to which John Vernaleo says 
+
+    * 
+
+
 
 
 
@@ -81,6 +170,47 @@ support. [5]
 
 [8]: http://lists.w3.org/Archives/Public/public-html/2012Feb/0337.html
 
+[9]: http://lists.w3.org/Archives/Public/public-html/2012Feb/0338.html
+
+[10]: http://lists.w3.org/Archives/Public/public-html/2012Feb/0341.html
+
+[11]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0344.html
+
+[12]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0345.html
+
+[13]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0347.html
+
+[14]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0348.html
+
+[15]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0350.html
+
+[16]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0352.html
+
+[17]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0354.html
+
+[18]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0362.html
+
+[19]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0369.html
+
+[20]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0374.html
+
+[21]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0375.html
+
+[22]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0377.html
+
+[23]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0378.html
+
+[24]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0379.html
+
+[25]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0380.html
+
+# Github Notes
+
+* 17th May 2016: Paul Cotton announces that ensuring CDM level
+  interoperability is out of scope of the working group's charter [1].
+
+[1]: https://github.com/w3c/encrypted-media/issues/192#issuecomment-219805449
+
 
 # People
 
@@ -88,7 +218,7 @@ support. [5]
 
 * Ian Hickson: He works for Google and is a part of CSS working group.
 
-* Glenn works for Skynav
+* Glenn Adams works for Cox Communications
 
 * Silvia Pfeiffer Works at NICTA
 
@@ -103,6 +233,13 @@ support. [5]
 * Charles Pritchard works for Jumis
 
 * Henri Sivonen works for Mozilla
+
+* Carr, Wayne works for Intel
+
+* Bob Lund works for Cable Labs
+
+* Boris Zbarsky works for MIT and a quick search suggests he an insider of
+  W3C.
 
 
 
