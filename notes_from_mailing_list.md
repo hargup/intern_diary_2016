@@ -9,13 +9,13 @@ HTML lacks robust content protection.
     * Ian Hickson called the proposal unethical.
     * Glenn Adams objected to linking EME to issue 171 which talked about
       adding ways to pass arbitary parameters to audio and video tags. Glenn
-ratter proposes to have generic exchange mechanism which are not specifically
+rather proposes to have generic exchange mechanism which are not specifically
 related to encrypted content. He criticizes not supporting params.
     * A lot of talk there after is about comparison with `<object>` in a purely
       techinical sense.
     * Chris Pearce questions the possibility of implementing content protection
-      in a FOSS browser.
-    * Eric Carlson said EME proposal is workable.
+      in a FOSS browser. [70]
+    * Eric Carlson said EME proposal is workable. [69]
     * Tab Atkins [2] points out that the sole purpose of EME is DRM, he said
       DRM is "technically impossible and practically useless, imposing
 unnecessary costs on legitimate users while doing nothing whatsoever to
@@ -51,9 +51,6 @@ only need to have a method to estimate their viewership to estimate the ad fee.
     Tab also talked about the comedian Louis CK who made a million dollar
 selling videos in DRM-free format.
 
-    * Charles Pritchard argues that there is no need of EME as `<video>` is
-      codec agnostic and they can stream the video on a codec which only they
-support. [5]
 
     * Mark Watson counters the cost to the users because of DRM with the cost
       of fragmentation. [6]
@@ -71,30 +68,28 @@ sense. He also argues that an encrypted stream is no better than a arbitary
 codec but  W3C should implement trusted computing anyway to protect the
 privacy of people. [8]
 
-    * John Foliot argues that they need to strip way the philosphical
+    * John Foliot argues that they need to strip way the philosophical
       arguments about EME and think about from a purely technical point of
 view and then he justifies EME by saying it what the economy wants. Failing to
 realize that "This is what economy wants" is not a technical argument,
 neither he justifies that W3C should do what CEOs want them to do.
 
-    *  Carr, Wayne supports the proposal without justification. [10]
+    * Carr, Wayne supports the proposal without justification. [10]
 
     * Henri Sivonen counters John's post by saying that standard setters need
       to make value judgement all the time and arguing "Don't use it if you
-don't like it", is an extremly naive solution and doesn't tackle the issue of
+don't like it", is an extremely naive solution and doesn't tackle the issue of
 lack of level playing field [11]. In the next email says that the lack of
 interoperability of `<video>` and `<audio>` shouldn't be taken as role model
 also. He countered Pritchard's example about Trusted computing by pointing out
 in his example the "Evil Maid" was an adversary but in EME the adversary is
-the user, he also says that it'll be laughable to say EME protect's user's
+the user, he also says that it'll be laughable to say EME protects user's
 privacy.
 
     * Bob Lund supports the proposal by saying it is a good first step to
       support problems of content providers and device manufacturers. [13]
 
-    * Tab Atkins points out that the legal difference between encyption and using
-      an arbitary codec is that the former is covered by DMCA but the later
-isn't. [14]
+    * Tab Atkins pointed out that the legal difference between encryption and using an arbitary codec is that the former is covered by DMCA but the later isn't. [14]
 
     * Specifically replying to Henri, Mark Watson argues that EME is not about
       adding DRM to the web but about improving existing plugin based system.
@@ -124,10 +119,8 @@ providers, which might prevent usage of EME with open source implementation [21]
     * Mark Watson says "A Content Decryption Module implementing the
       'clearkey' keysystem can be implemented as Open Source. This serves as
 an existence proof, at least.
-
 Whether any given content provider believes any given keysystem
 implementation meets their needs is up to them.
-
 We are not proposing to standardize any Content Decryption Module except
 clearkey, just as HTML does not mandate any video codec and for similar
 reasons. So the specification as proposed can be implemented in Open Source
@@ -139,7 +132,7 @@ just as well as the rest of the Media Element." [22]
       willing to use open source implementations of CDMs to provide their
 content [24].
 
-    * John Vernaleo replies to Glenn saying that he'll like to keep technical
+    * John C. Vernaleo replies to Glenn saying that he'll like to keep technical
       and legal issue seperate but that might mean keeping OSS out [25] to
 which Glenn replies that this is over generalization and not all licenses
 block OSS [26], to which John Vernaleo says that the specifics of the
@@ -159,7 +152,7 @@ nontechnical usage of term adversary in context of DRM and points out to RMS [45
 
     *  Incompressible exchange between Charles and Kornel [33] [34]
 
-    * Mark Vickers representing Comcast strongly supported the EME proposal
+    * Mark Vickers, representing Comcast, strongly supported the EME proposal
       claiming that EME will go a long way towards moving most of the
 functionality of web to plugins. He compared EME to SSL and said like SSL, EME
 will be a vital step enabling commerce and communications through web browser.
@@ -171,11 +164,11 @@ mainly talks about browser extensions which be used for interception. He
 asks the group to give a full analysis to the proposal so that it can be used
 for the benefit of privacy [36].
 
-    * Supporting Ian, Benjamin Hawkes-Lewis posts three weblinks demostrating
+    * Supporting Ian, Benjamin Hawkes-Lewis posts three weblinks demonstrating
       the inverse relation between DRM and accessibility. Though two of these
 three weblinks are now broken [37]. To which Glenn Adams responds by saying
-that DRM/CP doesn't intentionally discriminates against accessiblity features.
-He then points out that HTML5 offer work arounds in case where accessibility
+that DRM/CP doesn't intentionally discriminates against accessibility features.
+He then points out that HTML5 offer workarounds in case where accessibility
 features are missing. [38]
 
     * Henri says "Even if one accepted the notion that DRM discriminates
@@ -186,7 +179,6 @@ privileged.Typically European countries have copyright acts that put
 limitations on copyright (i.e. the copyright holder has less say) that enable
 adaptations for accessibility purposes. DRM foils this, which is a recurring
 theme in hearings about anti-circumvention legislation.
-
 Suppose the content provider isn't providing a text track and has
 applied DRM to the audio track. Suppose that the DRM proprietor places
 a contractual requirements (amplified by anti-circumvention
@@ -196,10 +188,9 @@ other processes. This would prevent the accessibility use of sending
 the audio to a speech recognition system for generating captions on
 the fly on the client side.
 "
-
 He also demands to know why scrambling is not being proposed as a solution.
-[40] [41] To which Mark responds that JS is not a secure enough and it might
-turn out to be to heavy. [50]
+[40] [41] To which Mark Watson responds that JS is not a secure enough and it might
+turn out to be to heavy for decryption. [50]
 
     * David Singer calls it a myth that HTML5 cannot play protected content.
       [44]
@@ -207,32 +198,32 @@ turn out to be to heavy. [50]
     * Mark Vickers argues that EME improves upon many of the accessibility
       issues in plugin systems used to play protected content by providing
 standard ways to add accessibility features. [46]
-     Mark further asks following questions to David and EME editors. [47]
-"""
-David Singer:
-1. How would the application and user agent communicate the particular
-   content-protection scheme? Would it be in the source element type and/or
-codecs attributes? Can you give a concrete example?
+     Vickers, Mark further asks following questions to David and EME editors. [47]
+        ```
+        David Singer:
+        1. How would the application and user agent communicate the particular
+        content-protection scheme? Would it be in the source element type and/or
+        codecs attributes? Can you give a concrete example?
 
-2. How would the application key server connect to the user-agent key client?
+        2. How would the application key server connect to the user-agent key client?
 
-3. Are there any examples deployed, prototyped or proposed for a specific
-   content protection system using HTML5 in this manner?
+        3. Are there any examples deployed, prototyped or proposed for a specific
+        content protection system using HTML5 in this manner?
 
-David Dorwin, Adrian Bateman, Mark Watson:
-1. Can you provide a functionality comparison of content protection using the
-   current specs vs. with your proposal?
-"""
+        David Dorwin, Adrian Bateman, Mark Watson:
+        1. Can you provide a functionality comparison of content protection using the
+        current specs vs. with your proposal?
+        ```
 
-    * David's responds to the question [48] and Mark responds by arguing that
+    * David's responds to the question [48] and Mark Watson responds by arguing that
       many browsers have entire media pipeline in the browers code and hence it
 cannot use the content protection facilities available on the OS, he also
 claims that it is not a myth that protected content cannot be run in HTML5
 because there isn't a standard way to do it. [49] And then David responds
-agains (will do the summarization later) [56].
+again (will do the summarization later) [56].
 
 
-    * To issue of creating unlevelled field for browser's Mark responds that
+    * To issue of creating unlevelled field for browser's Mark Watson responds that
       the same situation exists in plugin based enviornments and EME improves
 upon that. [50] To which Boris's response was that any new browser with correct
 implementation of NPAPI can work with flash so the answer really depends on the
@@ -240,14 +231,68 @@ specifics of the Content Decryption Modules. He also questions the assumption
 that browser developer will have greater control and more options in case of
 EME [51]
 
-    * Mark argues that there are practical difficulties for new browser with
-      flash even if they have an implementation of NPAPI according to the
+    * Mark Watson argues that there are practical difficulties for new browser
+      with flash even if they have an implementation of NPAPI according to the
 specification, he says CDMs provide more control to browsers because they are
 smaller and have much less functionality. [52] According to Boris this is
 different because there no legal difficulties, where as implementing a CDM
-might lead to trouble with DMCA. [53]
+might lead to trouble with DMCA. [53] But Mark feel the situation is no worse
+both in legal and technical because CDM's will only be a subset of the current
+plugins. [57] EME makes the binary 'blobs' of plugin's smaller with a
+well-defined and highly-constrained function and it should be an improvement.
+"Making them (blobs) go away altogether might be a bigger improvement by some
+measures but by others (range of content available) might be quite negative."
+[67]
+    * Boris points out and important issue that if W3C don't define the API for
+      CDM interaction,  "One of the requirements for browser developers (either
+on their own or imposed by the CDM providers) might well be "make it illegal
+for any other browser developer to attempt to reverse-engineer the API we're
+using"" . He also says that if the discussion is about supporting walled
+gardens then it shouldn't happen here at W3C. [68]
 
-    * Purely technical blabber [54] [55]
+    * Purely technical blabber [54] [55] [58]
+
+    * Kornel ask if there will be standard way for browsers to communicate with
+      CDMs [59] to which Mark Watson says "there could be if people would like there
+to be. On the other hand there is no such standardized API for plugins or media
+codecs." [60] Vickers, Mark supports having a standard API saying it will be
+useful [62]. Kornel says without an API the CDM side is all hypothetical [63]
+and Glenn say though having it will be a reasonable task but a not a task for
+W3C [64].
+
+    * Earlier Henri had asked if they are OK with revealing unscrambled content
+      to the user only hiding it from the third parties then HTTPS should be
+enough to which Mark Watson responded that the content providers might wish to
+hide content when it is stored in servers and that http service with CDNs are
+cheaper than https and is operationally simpler (Which appears to be a bogus
+claim). [61]
+
+    * Kornel stated the EME spec does very little to easy and interoperable
+      content protection. Main four weaknesses he pointed out were [65]
+        1. The spec leaves interaction between CDM and the browser undefined, so  each
+        CDM provider will have to cooperate with every single browser vendor it's
+        willing to support, and browser vendors may need to implement  proprietary CDM
+        APIs several times.
+
+        2. Very few companies have enough market power to establish a new DRM  approved
+        by "Hollywood", so it's quite possible that the current plugin  problem will
+        just morph into an identical CDM problem
+
+        3. unified server-side API is much important to enable diversity of protection
+        systems, but it's out of scope of the spec.
+
+        4. The spec does not help implementors create secure implementations. It needs
+        to define chain of trust and how  it is established/verified — otherwise
+        each CDM/browser/OS combination may  have different, variable and unspecified,
+        levels of protection.
+
+        Mark Watson agreed with most of Kornel's concerns and said it is the
+        first draft and things will be improved upon. [66]
+
+    * 
+
+
+
 
 
 
@@ -369,50 +414,88 @@ might lead to trouble with DMCA. [53]
 
 [56]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0433.html
 
+[57]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0434.html
+
+[58]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0435.html
+
+[59]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0436.html
+
+[60]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0437.html
+
+[61]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0438.html
+
+[62]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0439.html
+
+[63]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0440.html
+
+[64]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0442.html
+
+[65]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0444.html
+
+[66]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0449.html
+
+[67]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0446.html
+
+[68]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0448.html
+
+[69]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0314.html
+
+[70]: https://lists.w3.org/Archives/Public/public-html/2012Feb/0303.html
+
 # Github Notes
 
 * 17th May 2016: Paul Cotton announces that ensuring CDM level
-  interoperability is out of scope of the working group's charter [1].
+  interoperability is out of scope of the working group's charter [a].
 
-[1]: https://github.com/w3c/encrypted-media/issues/192#issuecomment-219805449
+[a]: https://github.com/w3c/encrypted-media/issues/192#issuecomment-219805449
 
 
 # People
 
-* Adrian Bateman works for Microsoft.
-
-* Ian Hickson: He works for Google and is a part of CSS working group.
-
 * Glenn Adams works for Cox Communications
+* Bob Lund works for Cable Labs
+* Mark Watson works for Netflix
+* Mark Vickers works for Comcast.
+* Adrian Bateman works for Microsoft.
+* Clark Stevens works for CableLabs
+
+
+* Eric Carlson works for Apple.
+* Carr, Wayne works for Intel
+* Leonard Rosenthol works for Adobe
+* David Dowin works for Google
+
+
+* Chris Pearce works for Mozilla
+* Henri Sivonen works for Mozilla
+* Robert O'Callahan used to work with Mozilla till March 2016, he was rr
+  (record and replay) developer.
+* David Baron works for Mozilla
+* Boris Zbarsky works for Mozilla and a quick search suggests he an insider of
+  W3C.
+
 
 * Silvia Pfeiffer Works at NICTA
 
-* Chris Pearce works for Mozilla
-
-* Eric Carlson works for Apple.
-
 * Tab Atkins works for Google as a web standard's hacker http://www.xanthir.com
+* Ian Hickson: He works for Google and is a part of CSS working group.
+* John C. Vernaleo worked at Conformal System at the time of discussion and
+  security and open source firm. http://www.netpurgatory.com/web_stuff/media/cv_jcvernaleo.pdf
+* Andreas Kuckartz is a german software developer.
+(ping.de is the internet provider)
+* Charles Pritchard works for Jumis, which is a web applications and services
+  provider
 
-* Mark Watson works for Netflix
-
-* Charles Pritchard works for Jumis
-
-* Henri Sivonen works for Mozilla
-
-* Carr, Wayne works for Intel
-
-* Bob Lund works for Cable Labs
-
-* Boris Zbarsky works for MIT and a quick search suggests he an insider of
-  W3C.
-
-* Kornel Lesiński
+* Kornel Lesiński works at Financial Times
 
 * Benjamin Hawkes-Lewis(bhawkeslewis@googlemail.com)'s isn't apparent from
   simple web search.
 
 * David Singer works for Multimedia and Software Standards, Apple. He has
   written on identity management and privacy principles in W3C. https://www.w3.org/2011/track-privacy/papers/Apple.pdf https://www.w3.org/2011/identity-ws/papers/idbrowser2011_submission_51.pdf
+
+* Smylers is a programmer from Leeds, UK
+
 
 
 
@@ -437,8 +520,7 @@ behind it will use some other business body or standards organization to push
 their agenda, btw he also supported the right to control and monetize what
 companies have invested in.
 
-* John C. Vernaleo: Opposed to W3C supporting DRM, and does not say that
-  removing EME will make DRM go away.
+* John C. Vernaleo: Opposed to W3C supporting DRM.
 
 * piranna@gmail.com objects to EME https://lists.w3.org/Archives/Public/public-html-admin/2013May/0154.html
 * She is an independent developer from Spain, probably a recent graduate. http://pirannafs.blogspot.in
