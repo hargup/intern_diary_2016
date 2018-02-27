@@ -1,0 +1,387 @@
+\protect\hypertarget{anchor}{}{}Technical Alternative to Encrypted Media
+Extensions (EME)
+
+\protect\hypertarget{anchor-1}{}{}Introduction
+
+Encrypted Media Extensions (EME) are a draft specification\footnote{Encrypted
+  Media Extensions W3C Candidate Recommendation
+  \href{https://www.w3.org/TR/encrypted-media/}{\emph{https}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{://}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{www}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{.}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{w}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{3.}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{org}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{/}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{TR}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{/}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{encrypted}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{-}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{media}}\href{https://www.w3.org/TR/encrypted-media/}{\emph{/}}.
+  For a general overview see https://hsivonen.fi/eme/} to standardize
+digital rights management (DRM) for audio and video at the browser
+level.
+
+The specification has been very controversial in the software community
+since it was first drafted in 2012. It was proposed by content providers
+and streaming service operators to ensure that content delivered to
+legitimate users is inaccessible to pirates.
+
+However, the proposed solution raised salient questions about
+interoperability, privacy, accessibility and implementation in Free and
+Open Source (FOSS) software.
+
+Several parties have, over the course of the discussion at W3C, proposed
+several alternate technical alternatives. This report aims to analyze
+these alternatives and the proposed EME specification along six
+dimensions; technical copy protection, legal copy protection,
+interoperability/entry barriers for browsers, privacy, accessibility,
+and user security.
+
+\protect\hypertarget{anchor-2}{}{}Aims of the Specification
+
+\begin{itemize}
+\tightlist
+\item
+  Make it technically hard for a malicious user to pirate a particular
+  media
+\item
+  Have sufficient legal barriers to deter infringement
+\end{itemize}
+
+At the same time:
+
+\begin{itemize}
+\tightlist
+\item
+  Ensure interoperability and make sure there are no entry barriers for
+  new browsers
+\item
+  Protect privacy of users
+\item
+  Make sure the system doesn't bring about security vulnerability
+\item
+  Maintain accessibility for a person with disabilities
+\end{itemize}
+
+\protect\hypertarget{anchor-3}{}{}Metrics of Comparison
+
+\protect\hypertarget{anchor-4}{}{}Technological Copy Protection :
+
+During the transfer of video content from the web server of the content
+provide to the user, there are multiple points where a malicious entity
+can capture the copyrighted content.
+
+We classify the technical strength of a DRM system depending on the
+point in transition where the capture can take place. Assuming the
+server is itself secure, the first point where the adversary can capture
+the media is during the transition from the server to the user's device.
+Preventing such kind of interception is a standard problem and is in
+solved by the use of HTTPS. After the media stream reaches the device of
+the intended user, she can capture the before it is played on the media
+software. For example in case of images or text, the user can usually
+save the media without the need of any special software or specialized
+technique. So the next step from content providers side is build
+restrictions in the software playing the media. The usual way to do this
+is by making sure that the media can be played only on certain software
+which doesn't allow the user to copy the media. The software
+restrictions can be implemented using arbitrary codecs, scrambling or
+encryption. Technical restrictions at software level are always prone to
+be captured by screen capturing softwares, and hardware emulators which
+appears as output devices to media software but are used to save the
+media instead. To prevent capturing at software level there exists
+technologies such as HDCP\footnote{HDCP Whitepaper,
+  \href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{https}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{://}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{web}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{.}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{archive}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{.}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{org}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{/}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{web}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{/20080920191718/}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{http}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{://}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{www}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{.}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{digital}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{-}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{cp}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{.}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{com}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{/}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{files}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{/}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{documents}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{/04}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{A}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{897}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{FD}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{-}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{FEF}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{1-0}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{EEE}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{-}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{CDBB}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{649127}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{F}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{79525/}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{HDCP}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{\_}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{deciphered}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{\_070808.}}\href{https://web.archive.org/web/20080920191718/http://www.digital-cp.com/files/documents/04A897FD-FEF1-0EEE-CDBB649127F79525/HDCP_deciphered_070808.pdf}{\emph{pdf}}}
+which protects the media during its transition from the media software
+to the output device. Although such technologies are also fallible to a
+user holding a video camera in front of the monitor. This weakness of
+the DRM systems is known as Analog Hole.
+
+Technological Copy Protection is:
+
+\begin{itemize}
+\tightlist
+\item
+  High: Infringer needs specialized hardware to capture the copyrighted
+  content.
+\item
+  Medium: Infringer needs specialized Software to capture the
+  copyrighted content
+\item
+  Low: Infringer needs only commonly available software and hardware to
+  capture the copyrighted content
+\end{itemize}
+
+\protect\hypertarget{anchor-5}{}{}Copy Protection (Legal)
+
+Jurisdictions across the world have laws which make it illegal to
+circumvent technological protections methods for the protections of
+Copyright. The most famous of them is the Section 1201 of the United
+States Digital Millennium Copyright Act (DMCA). For content providers
+who wish to use TPMs to prevent piracy of their copyrighted work, these
+laws provide additional layers of protection. DMCA disallows
+circumventing a technical measure which effectively control access to
+copyrighted work, also it disallows the ``manufacture, import, offer to
+the public, provide, or otherwise traffic in any technology, product,
+service, device, component'' which is primarily designed to circumvent a
+DRM. DMCA has an exception that allows the reverse engineering of a DRM
+when solely done to provide interoperability.\footnote{Section 1201, US
+  Digital Millennium Copyright Act }
+
+Legal protection against infringement is high in DRM system if:
+
+\begin{itemize}
+\tightlist
+\item
+  High: Circumventing the DRM and creating tools to enable that is
+  illegal unconditionally
+\item
+  Medium: Circumventing the DRM and creating tools to enable that is
+  illegal depending the intent and circumstances
+\item
+  Low: Circumventing the DRM and creating tools to enable that is legal.
+\end{itemize}
+
+\protect\hypertarget{anchor-6}{}{}Security
+
+DRM systems have been criticized for leaving users' devices vulnerable.
+
+Security of a user using the DRM system is:
+
+\begin{itemize}
+\tightlist
+\item
+  High: The system don't require any elevated permissions
+\item
+  Medium: The system only requires elevated software permissions 
+\item
+  Low: The system requires both elevated hardware or software permission
+\end{itemize}
+
+\protect\hypertarget{anchor-7}{}{}Privacy
+
+Privacy of user using the DRM systems is:
+
+\begin{itemize}
+\tightlist
+\item
+  High: The system doesn't collect minimal information
+\item
+  Medium: The system only collects non personally identifiable
+  information
+\item
+  Low: The system collects personally identifiable information
+\end{itemize}
+
+\protect\hypertarget{anchor-8}{}{}Accessibility
+
+DRM systems can turn out to be problematic for providing accessibility
+for disabled persons. In case of video service can be made accessible by
+providing access to closed captions for a video and by modifying the
+stream to make it accessible to color blind people. However, a DRM
+system could present unnecessary barriers for people trying to provide
+accessibility solutions. There can be technical barrier in the process
+of handling the video stream
+
+W3C Technical Architecture Group (TAG) suggested following guidelines to
+maintain accessibility in Encrypted Media Extensions:\footnote{https://github.com/w3ctag/eme/blob/master/EME\%20Proposal.md\#accessibility-1}
+
+\begin{itemize}
+\tightlist
+\item
+  ensuring that media content may be redirected to certain system
+  services;
+\item
+  ensuring that every piece of digital content is available in its
+  original form (for example, subtitles are not blended into video,
+  etc);
+\item
+  ensuring that standard operations (adjusting contrast, using
+  third-party subtitles or audio-stream) may be applied to restricted
+  media;
+\item
+  ensuring that restricted media from different sources provided by
+  different EME systems (for example, video from one source and
+  sign-language interpretation of that video from another source) may be
+  used simultaneously.
+\end{itemize}
+
+We say accessibility in a DRM system is:
+
+\begin{itemize}
+\tightlist
+\item
+  High: If all the of the guidelines are met
+\item
+  Medium: If two more points in the guideline are met
+\item
+  Low: If less than points of the guideline are met
+\end{itemize}
+
+\protect\hypertarget{anchor-9}{}{}Interoperability
+
+Interoperability of any system is important to keep the entry barriers
+low for a new producer to enter the market. Interoperability of a DRM
+system for browsers is:
+
+\begin{itemize}
+\tightlist
+\item
+  High: The full spec is available for implementation on royalty free
+  basis
+\item
+  Medium: The full spec is not available, but can be implemented through
+  reverse engineering without legal barriers.
+\item
+  Low: Third parties may restrict new browsers from implementing the
+  spec through legal means.
+\end{itemize}
+
+\protect\hypertarget{anchor-10}{}{}Specifications
+
+\protect\hypertarget{anchor-11}{}{}EME Specification
+
+EME specification only defines the javascript component of the system
+and the large component called Content Decryption Module(CDM) is left
+undefined. The CDM can be hardware based using technologies like HDCP,
+which prevents screen capture. The CDM can be software based and can
+return the decrypted video to the browser to render, or it can use its
+own media stream and render it by itself. Most of the CDMs in use are
+proprietary but there can exist CDMs which are fully specified and are
+open source. The implications for copy protection, privacy,
+accessibility and security depends on the CDM used. Interoperability of
+EME spec is very low because there are not only technical barriers due
+lack of full specification but also legal barriers as browsers may need
+to get into a contract with the dominant CDM providers to add support
+for their CDM.
+
+\protect\hypertarget{anchor-12}{}{}Obfuscation (Arbitrary Codec)
+
+Charles Pritchard pointed out the HTML5 video specification is codec
+agnostic, hence the content providers can stream the media using an
+arbitrary codec which only supported by the media provider.\footnote{https://lists.w3.org/Archives/Public/public-html/2012Feb/0328.html}
+So even if the user captures the video stream it cannot be pirated
+without reverse engineering the codec. Although reverse engineering is
+usually allowed by DRM laws hence the legal protection is low.\footnote{Section
+  1201, Digital Millennium Copyright Act} Since the codec support is
+provided through OS, there is no need to modify the browser and the
+system can be supported by any browser without any technical or legal
+barriers.
+
+\protect\hypertarget{anchor-13}{}{}HTTPS and JS encryption
+
+Tab Atkins proposed using JS encryption using browser and
+\textless{}video\textgreater{} element\footnote{https://lists.w3.org/Archives/Public/public-html/2012Feb/0456.html}.
+Since the technique requires the a malicious user to implement the full
+\textless{}video\textgreater{} spec to decrypt the video, the scheme
+provides moderate technical copy protection.
+
+\protect\hypertarget{anchor-14}{}{}Encryption using video tag
+
+According to David Singer encrypted video can be played through the
+existing \textless{}video\textgreater{} tags where the content file says
+its content-ID and is marked as protected, someone who has the DRM to
+play the content installed and has brought the keys to play it can watch
+the video.\footnote{https://lists.w3.org/Archives/Public/public-html/2012Feb/0422.html}
+As a concrete example he talked about protected .m4p audio files from
+iTunes library, which plays just fine on Safari.\footnote{https://lists.w3.org/Archives/Public/public-html/2012Feb/0433.html}
+
+\protect\hypertarget{anchor-15}{}{}Plugin System (Flash)
+
+Existing plugin system, mainly Flash is be used to as a technical
+measure to prevent copyright infringement. It is more interoperable than
+EME because any browser with a correct implementation of NPAPI can
+provide support for Flash\footnote{https://lists.w3.org/Archives/Public/public-html/2012Feb/0427.html}.
+
+\begin{longtable}[]{@{}@{}}
+\toprule
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\bottomrule
+\end{longtable}
+
+\protect\hypertarget{anchor-16}{}{}Diversity Analysis
+
+We considered that any email on the public-html mailing list of W3C with
+`` EME ``, ``Encrypted Media'' or ``Digital Rights Management'' in the
+subject line is about the Encrypted Media Extensions draft
+specification. Then we manually tagged every participant by their
+gender, the region they belong to and their stakeholder community.
+
+\protect\hypertarget{anchor-17}{}{}Region
+
+\begin{longtable}[]{@{}@{}}
+\toprule
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\bottomrule
+\end{longtable}
+
+We found that there were no absolutely participants from Asia, Africa or
+South America.
+
+The Internet is lived differently in different parts of the world. The
+IP laws in many countries in the global South are very different to
+those in the USA or Europe. In addition, many internet users in these
+countries use connections with relatively low bandwidths. The lack of
+representation of people from the global South means that their concerns
+-\/- technical, cultural, and legal -\/- are not being considered at all
+in this debate.
+
+\protect\hypertarget{anchor-18}{}{}
+
+\protect\hypertarget{anchor-19}{}{}Stakeholder Community
+
+\begin{longtable}[]{@{}@{}}
+\toprule
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\bottomrule
+\end{longtable}
+
+We observe that there was no participation from the Security Researcher
+community and negligible participation from privacy community. Voice of
+Digital Content Provider was overrepresented with almost 40\% of emails
+sent by them.
+
+Methodological remarks:
+
+\begin{itemize}
+\tightlist
+\item
+  Participants are categorized on the basis stakes of their employer and
+  not specifically on the work they do. For example someone who works on
+  privacy in Google will be placed in "DRM platform provider" instead of
+  "Privacy".
+\item
+  W3C and Universities are considered to neutral and their employees are
+  categorized by the work they do.
+\item
+  Google's position is very interesting, it is a DRM provider as a
+  browser manufacturer but also a content provider in Youtube and fair
+  number of Google Employers are against EME due to other concerns.
+  Therefore Christian Kaiser has been paced as Content provider because
+  he works on Youtube, and everyone else has been placed as DRM
+  provider.
+\end{itemize}
+
+\protect\hypertarget{anchor-20}{}{}Gender
+
+\begin{longtable}[]{@{}@{}}
+\toprule
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\tabularnewline
+\bottomrule
+\end{longtable}
+
+There was only one women participating in the discussing contributing
+1.3 \% of the emails sent. The numbers reflects widely discussed lack of
+gender diversity in Tech and Open communities\footnote{http://geekfeminism.wikia.com/wiki/FLOSS}.
